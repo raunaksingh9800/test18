@@ -1,59 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>AI Terminal | Download</title>
     <style>
+        :root {
+            --primary: #BF40BF;
+            --primary-hover: #a036a0;
+            --bg: #0a0a0a;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
 
         * {
-            padding: 0;
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            padding: 5px;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
         }
-      section {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content:  center;
-        align-items: center;
-    
-        border-top: 2px;
-        border-right: 2px;
-                border-bottom: 2px;
-        border-left: 2px;
-        border-style: dashed;
-        border-color: black;
 
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Modern Gradient Background */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.2;
+            z-index: -1;
+        }
 
+        section {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
 
-        font-size: x-large;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
 
-      }
+        p {
+            color: #aaa;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
 
-      h1 {
-        transition: all 0.3s ease-in;
+        .download-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-        
-      }
+        .btn {
+            display: block;
+            padding: 16px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s;
+            font-size: 1rem;
+        }
 
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
 
-      h1:hover {
-        color:rgb(165, 87, 165);
-        font-size: 4rem;
-      }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .version-tag {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+            display: block;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <section>
-      <h1>
+        <h1>AI Terminal</h1>
+        <p>Elevate your Windows workflow with the next generation of command-line intelligence.</p>
         
-        Shalini is a baddie</h1>
+        <div class="download-container">
+            <a href="installer/AITermInstaller.exe" class="btn btn-primary">
+                Download Installer (.exe)
+            </a>
+
+            <a href="installer/aiterm.exe" class="btn btn-secondary">
+                Download Portable Version
+            </a>
+        </div>
+
+        <span class="version-tag">v1.0.4-stable | Windows x64</span>
     </section>
-  </body>
+
+</body>
 </html>
