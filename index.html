@@ -27,13 +27,16 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
+            padding: 2rem 0;
+            overflow-y: auto; /* Changed to allow scrolling for instructions */
         }
 
-        /* Modern Gradient Background */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 300px;
             height: 300px;
             background: var(--primary);
@@ -50,7 +53,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
             width: 90%;
-            max-width: 500px;
+            max-width: 550px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
@@ -60,9 +63,17 @@
             letter-spacing: -1px;
         }
 
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-align: left;
+        }
+
         p {
             color: #aaa;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             line-height: 1.6;
         }
 
@@ -70,6 +81,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-bottom: 2rem;
         }
 
         .btn {
@@ -103,6 +115,43 @@
             transform: translateY(-2px);
         }
 
+        /* User Manual Styling */
+        .instructions {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+
+        .instructions ol {
+            padding-left: 1.2rem;
+            color: #ccc;
+        }
+
+        .instructions li {
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .instructions strong {
+            color: #fff;
+        }
+
+        .crucial {
+            color: #ff4d4d !important;
+            font-weight: bold;
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--primary);
+        }
+
         .version-tag {
             font-family: 'Courier New', Courier, monospace;
             font-size: 0.8rem;
@@ -127,6 +176,18 @@
             <a href="installer/aiterm.exe" class="btn btn-secondary">
                 Download Portable Version
             </a>
+        </div>
+
+        <div class="instructions">
+            <h2>User Manual</h2>
+            <ol>
+                <li><strong>Install:</strong> Double-click <code>AITermInstaller.exe</code>. If Windows warns you about an "Unknown Publisher," click <strong>More Info</strong> &rarr; <strong>Run Anyway</strong>.</li>
+                <li><strong>Permissions:</strong> Click <strong>Next</strong> through the prompts. Ensure the box <strong>"Add AITerm to PATH"</strong> remains checked. Click <strong>Install</strong>, then <strong>Finish</strong>.</li>
+                <li><strong class="crucial">The "Path" Refresh (Crucial):</strong> If you already had a Command Prompt or PowerShell window open, <strong>close it</strong>. You must open a <strong>new</strong> terminal window for Windows to recognize the new <code>aiterm</code> command.</li>
+            </ol>
+            <p style="margin: 1rem 0 0 0; font-size: 0.85rem; color: #888;">
+                <strong>To verify:</strong> Type <code>aiterm</code> and hit Enter. If you see the help menu, you’re good to go.
+            </p>
         </div>
 
         <span class="version-tag">v1.0.4-stable | Windows x64</span>
